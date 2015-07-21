@@ -2,14 +2,14 @@
 <html lang="en-US" ng-app="Simulator">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/controllers.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
 
     <style>
-
         body {
             padding-top: 20px;
         }
@@ -17,7 +17,6 @@
         table {
             width: 100%;
         }
-
     </style>
 
 </head>
@@ -34,7 +33,7 @@
 
             <h1>Resultado</h1>
             <h3>Numero de bolas que sairam: {{report.balls.length}}</h3>
-            <h3>Bola que mais saiu: {{ report.bestBall[0] }} ({{ report.bestBall[1] }} vezes, {{ report.bestBall[1] * 100 / report.total | number:1  }}%)</h3>
+            <h3>Bola que mais saiu: {{ report.bestBall[0] }} ({{ report.bestBall[1] }} vezes, {{ report.bestBall[1] * 100 / report.total | number:1 }}%)</h3>
             <h3>Bola que menos saiu: {{ report.worstBall[0] }} ({{ report.worstBall[1] }} vezes, {{ report.worstBall[1] * 100 / report.total | number:1 }}%)</h3>
         </div>
 
