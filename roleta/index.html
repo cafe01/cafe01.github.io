@@ -37,7 +37,24 @@
             <h3>Bola que menos saiu: {{ report.worstBall[0] }} ({{ report.worstBall[1] }} vezes, {{ report.worstBall[1] * 100 / report.total | number:1 }}%)</h3>
         </div>
 
-        <div class="small-6 columns">
+        <div class="small-12 large-6 columns">
+
+            <h2>Chances</h2>
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Resultados</th>
+                    <th>%</th>
+                </tr>
+                <tr ng-repeat="item in report.chances">
+                    <td>{{item[0]}}</td>
+                    <td>{{item[1]}}</td>
+                    <td>{{ item[1] * 100 / report.total | number:1 }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="small-12 large-6 columns">
 
             <h2>Bolas</h2>
             <table>
@@ -53,23 +70,6 @@
                 </tr>
             </table>
 
-        </div>
-
-        <div class="small-6 columns">
-
-            <h2>Chances</h2>
-            <table>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Resultados</th>
-                    <th>%</th>
-                </tr>
-                <tr ng-repeat="item in report.chances">
-                    <td>{{item[0]}}</td>
-                    <td>{{item[1]}}</td>
-                    <td>{{ item[1] * 100 / report.total | number:1 }}</td>
-                </tr>
-            </table>
         </div>
 
     </div>
