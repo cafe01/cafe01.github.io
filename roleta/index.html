@@ -17,6 +17,11 @@
         table {
             width: 100%;
         }
+
+        a.button {
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -26,20 +31,39 @@
     <div class="row">
 
         <div class="small-12 columns">
-            <p>Número de bolas :
+
+            <div class="bets">
+                <h3>Suas apostas:</h3>
+                <ul class="button-group even-5">
+                    <li><a ng-class="{ secondary: !bets.black }" class="button small" ng-click="toggleBet('black')">Preto</a></li>
+                    <li><a ng-class="{ secondary: !bets.red }" class="button small" ng-click="toggleBet('red')">Vermelho</a></li>
+                    <li><a ng-class="{ secondary: !bets.even }" class="button small" ng-click="toggleBet('even')">Par</a></li>
+                    <li><a ng-class="{ secondary: !bets.odd }" class="button small" ng-click="toggleBet('odd')">Ímpar</a></li>
+                    <li><a ng-class="{ secondary: !bets.zero }" class="button small" ng-click="toggleBet('zero')">Zero</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+                <label>Número de bolas:</label>
                 <input type="number" ng-model="numeroBolas">
-                <button ng-click="runSimulation(numeroBolas)">Iniciar</button>
-            </p>
+                <button class="expand" ng-click="runSimulation(numeroBolas)">Iniciar</button>
+            </div>
 
             <h1>Resultado</h1>
-            <h3>Numero de bolas que sairam: {{report.balls.length}}</h3>
-            <h3>Bola que mais saiu: {{ report.bestBall[0] }} ({{ report.bestBall[1] }} vezes, {{ report.bestBall[1] * 100 / report.total | number:1 }}%)</h3>
-            <h3>Bola que menos saiu: {{ report.worstBall[0] }} ({{ report.worstBall[1] }} vezes, {{ report.worstBall[1] * 100 / report.total | number:1 }}%)</h3>
+            <h5>Dinheiro: {{report.money}}</h5>
+            <h5>Bolas que ganhou: {{report.bets.won}}</h5>
+            <h5>Bolas que perdeu: {{report.bets.lost}}</h5>
+            <h5>Bolas que empatou: {{report.bets.tie}}</h5>
+
+            <h5>Numero de bolas que sairam: {{report.balls.length}}</h5>
+            <h5>Bola que mais saiu: {{ report.bestBall[0] }} ({{ report.bestBall[1] }} vezes, {{ report.bestBall[1] * 100 / report.total | number:1 }}%)</h5>
+            <h5>Bola que menos saiu: {{ report.worstBall[0] }} ({{ report.worstBall[1] }} vezes, {{ report.worstBall[1] * 100 / report.total | number:1 }}%)</h5>
         </div>
 
-        <div class="small-12 large-6 columns">
+        <div class="small-12 medium-6 columns">
 
-            <h2>Chances</h2>
+            <h3>Chances</h3>
             <table>
                 <tr>
                     <th>Tipo</th>
@@ -54,9 +78,9 @@
             </table>
         </div>
 
-        <div class="small-12 large-6 columns">
+        <div class="small-12 medium-6 columns">
 
-            <h2>Bolas</h2>
+            <h3>Bolas</h3>
             <table>
                 <tr>
                     <th>Bola</th>
